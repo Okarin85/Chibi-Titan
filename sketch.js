@@ -1,5 +1,7 @@
 let player;
+let enemy;
 let bg;
+let offset = 0;
 
 function Bird(){
   this.x = windowHeight / 10;
@@ -8,7 +10,7 @@ function Bird(){
   this.gravity = 1;
 
   this.show = function(){
-    image(img, this.x, this.y);
+    image(Mikasa, this.x, this.y);
   }
 
   this.update = function(){
@@ -35,11 +37,21 @@ function Bird(){
   }
 }
 
+function Titan(){
+  this.x = windowWidth;
+  this.y = windowHeight - 400;
+
+  this.show = function(){
+    image(titan, this.x + offset, this.y);
+  }
+}
+
 function setup() {
   player = new Bird();
+  enemy = new Titan();
   createCanvas(windowWidth, windowHeight);
-  //createCanvas(1920, 1080);
-  img = loadImage("Mikasa.png");
+  Mikasa = loadImage("Mikasa.png");
+  titan = loadImage("Titan1.png");
   bg = loadImage("forest.jpg");
 }
 
@@ -47,6 +59,8 @@ function draw() {
   background(bg);
   player.show();
   player.update();
+  enemy.show();
+  offset--;
 }
 
 function mouseClicked(){
