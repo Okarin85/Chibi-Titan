@@ -15,8 +15,8 @@ function Bird(){
     this.velocity += this.gravity;
     this.y += this.velocity;
 
-    if(this.y > windowHeight - 130){
-      this.y = windowHeight - 130;
+    if(this.y > windowHeight - 125){
+      this.y = windowHeight - 125;
       this.velocity = 0;
     }
 
