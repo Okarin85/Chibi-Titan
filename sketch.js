@@ -1,5 +1,6 @@
 let player;
 let enemy;
+let enemyup;
 let bg;
 let offset = 0;
 
@@ -46,12 +47,23 @@ function Titan(){
   }
 }
 
+function TitanUp(){
+  this.x = windowWidth * 2;
+  this.y = 0;
+
+  this.show = function(){
+    image(titanup, this.x + offset, this.y);
+  }
+}
+
 function setup() {
   player = new Bird();
   enemy = new Titan();
+  enemyup = new TitanUp();
   createCanvas(windowWidth, windowHeight);
   Mikasa = loadImage("Mikasa.png");
   titan = loadImage("Titan1.png");
+  titanup = loadImage("titanup.png");
   bg = loadImage("forest.jpg");
 }
 
@@ -60,6 +72,7 @@ function draw() {
   player.show();
   player.update();
   enemy.show();
+  enemyup.show();
   offset--;
 }
 
